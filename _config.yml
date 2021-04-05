@@ -22,7 +22,7 @@ plugins:
 
 # Site settings
 url: 'https://chrisowen491.github.io'
-baseurl: 'architecture-docs/'
+baseurl: '/architecture-docs/'
 title: 'My website'
 description: 'This is my new website'
 permalink: pretty
@@ -30,7 +30,7 @@ logo: "https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c?s=52"
 
 # Pagination
 paginate: 5
-paginate_path: blog/page:num
+paginate_path: decisions/page:num
 
 # Header nav
 navigation_header:
@@ -40,8 +40,8 @@ navigation_header:
   url: /about/
 - title: Decisions
   url: /decisions/
-- title: Blog
-  url: /blog/
+- title: Categories
+  url: /categories/  
 
 # Footer nav
 navigation_footer:
@@ -51,15 +51,12 @@ navigation_footer:
 # Collections
 collections:
   posts:
-    title: Posts
+    title: Architecture Decisions
     output: true
-    description: "My thoughts and ideas"
+    description: "ADR Entries"
     feature_text: |
       Welcome to my blog
     feature_image: "https://picsum.photos/2560/600?image=866"
-  decisions:
-    output: true  
-    title: Decisions
 
 # Collection settings
 defaults:
@@ -68,13 +65,7 @@ defaults:
       path: ""
       type: "posts"
     values:
-      layout: post # Set the default layout for posts
-  -
-    scope:
-      path: ""
-      type: "decisions"
-    values:
-      layout: post # Set the default layout for decisions      
+      layout: post # Set the default layout for posts    
   -
     scope:
       path: ""
