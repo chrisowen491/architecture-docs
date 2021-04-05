@@ -19,6 +19,7 @@ plugins:
 - jekyll-include-cache
 - jemoji
 - jekyll-remote-theme
+- jekyll-algolia
 
 # Site settings
 url: 'https://chrisowen491.github.io'
@@ -42,6 +43,8 @@ navigation_header:
   url: /decisions/
 - title: Categories
   url: /categories/  
+- title: Search
+  url: /search/  
 
 # Footer nav
 navigation_footer:
@@ -72,3 +75,8 @@ defaults:
       type: "pages"
     values:
       layout: page # Set the default layout for pages
+
+algolia:
+  application_id: AF54HS5SSH
+  index_name: reference
+  search_only_api_key: 29ee457e00ff639dc82aae13c37c843d
