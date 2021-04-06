@@ -21,24 +21,25 @@ const hitTemplate = function(hit) {
 
   const title = hit._highlightResult.title.value;
 
-  let breadcrumbs = '';
-  if (hit._highlightResult.headings) {
-    breadcrumbs = hit._highlightResult.headings.map(match => {
-      return `<span class="post-breadcrumb">${match.value}</span>`
-    }).join(' > ')
+  let tags = '';
+  if (hit.categories && hit.categories.length > 0) {
+    for(var i=0; i < hit.categories.length; i++) {
+        tags = tags +  `<span class="label label--category"><a href="{{ site.baseurl }}/categories/#${hit.categories[i]}"/>${hit.categories[i]}</a></span> `
+    }
   }
 
   const content = hit._highlightResult.html.value;
 
   return `
     <div class="post-item">
-      <span class="post-meta">${date}</span>
-      <h5><a class="post-link" href="${url}">${title}</a></h5>
-      {{#breadcrumbs}}<a href="${url}" class="post-breadcrumbs">${breadcrumbs}</a>{{/breadcrumbs}}
+      <time datetime="${date}">${date}</time>
+      <h3><a class="post-link" href="${url}">${title}</a></h3>
+      <small>{{#tags}}${tags}{{/tags}}</small>
       <div class="post-snippet">${content}</div>
     </div>
   `;
   } catch(ex) {
+      console.log(ex)
   }
 }
 
@@ -62,41 +63,3 @@ search.addWidget(
 
 search.start();
 </script>
-
-<style>
-.ais-search-box {
-  max-width: 100%;
-  margin-bottom: 15px;
-}
-.ais-search-box input {
-  padding-left: 35px;
-}
-.post-item {
-  margin-bottom: 30px;
-}
-.post-link .ais-Highlight {
-  color: #111;
-  font-style: normal;
-  text-decoration: underline;
-}
-.post-breadcrumbs {
-  color: #424242;
-  display: block;
-}
-.post-breadcrumb {
-  font-size: 14px;
-  color: #424242;
-}
-.post-breadcrumb .ais-Highlight {
-  font-weight: bold;
-  font-style: normal;
-}
-.post-snippet .ais-Highlight {
-  color: #2a7ae2;
-  font-style: normal;
-  font-weight: bold;
-}
-.post-snippet img {
-  display: none;
-}
-</style>

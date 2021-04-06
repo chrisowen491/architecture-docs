@@ -7,10 +7,11 @@ styles: true
 $backgroundColour: #ffffff !default;
 $codeBackgroundColour: #fafafa !default;
 $featureBackgroundColour: #f9fafa !default;
-$accentColour: #05bf85 !default;
+$accentColour: #bd479a !default;
 
 // Text colours
-$headingColour: #674186 !default;
+$headingColour: #21395c !default;
+$footerColour: #54366e !default;
 $bodyColour: #384743 !default;
 $linkColour: #0070c9 !default;
 $hoverColour: #674186 !default;
@@ -20,7 +21,7 @@ $white: #ffffff !default;
 
 // Typography
 $bodytype: (
-  font-family: "Arial, serif",
+  font-family: "Open Sans","Arial",sans-serif,
   regular: 400,
   bold: 700,
   italic: italic,
@@ -28,7 +29,7 @@ $bodytype: (
 ) !default;
 
 $headingtype: (
-  font-family: '"Arial", serif',
+  font-family: "Open Sans","Arial",sans-serif,
   regular: 400,
   bold: 700,
   cap-height: 0.75
@@ -44,3 +45,68 @@ $monospacetype: (
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,700");
 
 @import "alembic";
+
+.typeset {
+  h3 {
+    font-size: larger;
+  }
+  p a, li a {
+    background-image: none;
+    &:hover, &:active, &:focus {
+      background-image: none;
+    }
+  }
+}
+
+time {
+  font-size: 10px;
+  color: $captionColour
+}
+
+.ais-search-box {
+  max-width: 100%;
+  margin-bottom: 15px;
+  input {
+    padding-left: 35px;
+  }
+}
+
+.label {
+
+  &--category {
+    a {
+      color: $accentColour;
+      text-decoration: underline;
+    }
+  }
+}
+
+.ais-hits {
+  &--item {
+    h5 {
+      padding: 0px;
+    }
+    .post-item {
+      margin-bottom: 20px;
+    }
+    .post-link {
+      .ais-Highlight {
+        text-decoration: underline;
+      }
+    }
+    .post-snippet {
+      img {
+        display: none;    
+      }
+
+      .ais-Highlight {
+        color: $focusColour;
+        font-style: normal;
+        font-weight: bold;
+      }
+    }
+  }
+}
+footer {
+  background-color: $footerColour;
+}
